@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        dark: {
+          "400": "var(--dark-400)",
+          "700": "var(--dark-700)",
+        },
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -70,6 +74,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        "primary" : ['var(--ff-primary)']
       },
     },
   },
