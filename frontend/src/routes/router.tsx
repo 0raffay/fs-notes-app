@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LandingPage, Login } from "@/pages"; 
+import { LandingPage, Login, Dashboard } from "@/pages"; 
 import ROUTES from "@/routes";
 
 const routes = [
@@ -10,6 +10,10 @@ const routes = [
   {
     path: ROUTES.login,
     element: <Login />,
+  },
+  {
+    path: ROUTES.dashboard,
+    element: <Dashboard />,
   },
 ];
 

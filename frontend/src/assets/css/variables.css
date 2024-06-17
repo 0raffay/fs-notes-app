@@ -6,6 +6,8 @@
 
 @layer base {
   :root {
+
+    --text-heading-light: #fff;
     --primary: #3471ff;
 
     --dark-700: #1b1b1b;
@@ -13,7 +15,7 @@
 
     --ff-primary: "Poppins", sans-serif;
 
-    --background: hsl(0 0% 100%);
+    --background: #333333;
     --foreground: hsl(222.2 84% 4.9%);
 
     --card: hsl(0 0% 100%);

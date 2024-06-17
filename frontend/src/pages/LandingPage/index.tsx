@@ -12,7 +12,7 @@ export default function LandingPage() {
         <h1 className="text-[24px] mb-4 text-center leading-none">
           Welcome to <strong className="font-medium">Notepad Web</strong>
         </h1>
-        <Link to={ROUTES.login}>
+        <Link to={ROUTES.dashboard}>
           <Button centered={true}>New Note</Button>
         </Link>
       </main>

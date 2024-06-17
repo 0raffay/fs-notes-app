@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        "heading-light": "var(--text-heading-light)",
         dark: {
           "400": "var(--dark-400)",
           "700": "var(--dark-700)",
