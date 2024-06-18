@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Note = require("../models/Note");
+const Folder = require("../models/Folder");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 
@@ -21,7 +22,9 @@ const getUsers = asyncHandler(async (req, res) => {
 const createUser = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).json({ message: "'username' and 'password' are required" });
+    return res
+      .status(400)
+      .json({ message: "'username' and 'password' are required" });
   }
 
   const duplicate = await User.findOne({ username }).lean().exec();
@@ -35,7 +38,11 @@ const createUser = asyncHandler(async (req, res) => {
   const user = await User.create(userObject);
 
   if (user) {
-    res.status(200).json({ message: "New user has been created" });
+    const folder = await Folder.create({ user: user._id, title: "Unnamed folder" });
+    user.folders.push(folder._id);
+    await user.save();
+
+    res.status(200).json({ message: "New user has been created", data: user });
   } else {
     res.status(400).json({ message: "Invalid user data recieved" });
   }
