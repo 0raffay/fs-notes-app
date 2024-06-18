@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
-const NoteSchema = new mongoose.Schema(
+const FolderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -12,18 +12,13 @@ const NoteSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    text: {
+    description: {
       type: String,
-      required: true,
     },
-    folder: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Folder",
-    },
-    tags: [
+    notes: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Tag",
+        ref: "Note",
       },
     ],
   },
@@ -32,10 +27,10 @@ const NoteSchema = new mongoose.Schema(
   }
 );
 
-NoteSchema.plugin(AutoIncrement, {
+FolderSchema.plugin(AutoIncrement, {
   inc_field: "id",
-  id: "noteId",
+  id: "folderId",
   start_seq: 0,
 });
 
-module.exports = mongoose.model("Note", NoteSchema);
+module.exports = mongoose.model("Folder", FolderSchema);

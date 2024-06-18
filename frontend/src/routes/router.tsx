@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LandingPage, Login, Dashboard } from "@/pages"; 
+import { LandingPage, Login, Form, Layout } from "@/pages";
 import ROUTES from "@/routes";
 
 const routes = [
@@ -13,7 +13,13 @@ const routes = [
   },
   {
     path: ROUTES.dashboard,
-    element: <Dashboard />,
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Form />,
+      },
+    ],
   },
 ];
 
